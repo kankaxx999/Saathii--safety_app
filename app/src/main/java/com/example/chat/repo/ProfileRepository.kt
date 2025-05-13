@@ -1,6 +1,6 @@
-package com.example.chat.ui.profile
+package com.example.chat.repo
 
-
+import com.example.chat.datamodel.UserProfile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await

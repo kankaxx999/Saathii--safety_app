@@ -1,26 +1,23 @@
 [versions]
 agp = "8.8.2"
-daggerCompiler = "2.51.1"
-desugar_jdk_libs = "2.0.4"
-hiltAndroid = "2.49"
-hiltCompiler = "2.49"
+desugar_jdk_libs = "2.1.5"
+hiltAndroid = "2.51.1"
 hiltNavigationCompose = "1.2.0"
 kotlin = "2.1.10"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.7"
+lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
-composeBom = "2025.04.01"
-navigationCompose = "2.8.9"
+composeBom = "2025.05.00"
+navigationCompose = "2.9.0"
 roomCompiler = "2.7.1"
 roomRuntime = "2.7.1"
 mediationTestSuite = "3.0.0"
 googleGmsGoogleServices = "4.4.2"
 firebaseFirestore = "25.1.4"
 firebaseAuthKtx = "23.2.0"
-roomRuntimeAndroid = "2.7.1"
 ksp = "2.1.10-1.0.31"
 
 [libraries]
@@ -33,11 +30,9 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 androidx-room-compiler-v250 = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
 desugar_jdk_libs-v204 = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
-hilt-compiler-v248 = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -54,7 +49,6 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 mediation-test-suite = { group = "com.google.android.ads", name = "mediation-test-suite", version.ref = "mediationTestSuite" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
-androidx-room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "roomRuntimeAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -62,4 +56,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 
