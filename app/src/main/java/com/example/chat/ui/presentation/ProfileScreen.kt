@@ -1,4 +1,4 @@
-package com.example.chat.ui.profile
+package com.example.chat.ui.presentation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
@@ -10,6 +10,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.chat.datamodel.UserProfile
+import com.example.chat.viewmodel.ProfileViewModel
+
 @Composable
 
 

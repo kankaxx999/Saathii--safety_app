@@ -5,12 +5,10 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.ksp)
     id("com.google.dagger.hilt.android")
-    id("com.google.devtools.ksp")
-    id("kotlin-android")
-    id("dagger.hilt.android.plugin")
-    kotlin("kapt")
-    }
+}
 
 
 android {
@@ -67,11 +65,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.firebase.firestore)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.hilt.android)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.hilt.navigation.compose)
     coreLibraryDesugaring(libs.desugar.jdk.libs.v204)
-    kapt(libs.hilt.compiler)
 
 
 
@@ -84,7 +80,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler.v250)
-    implementation(libs.dagger.compiler)
-    ksp(libs.dagger.compiler)
 }

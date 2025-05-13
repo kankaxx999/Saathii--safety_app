@@ -1,4 +1,4 @@
-package com.example.chat.ui.profile
+package com.example.chat.datamodel
 
 data class UserProfile(
     val uid: String = "",
