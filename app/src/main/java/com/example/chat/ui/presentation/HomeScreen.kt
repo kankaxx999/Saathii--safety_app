@@ -2,7 +2,9 @@ package com.example.chat.ui.presentation
 
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -10,9 +12,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.chat.ui.view.StyledButton
+import org.intellij.lang.annotations.JdkConstants
 
 @Composable
 fun HomeScreen(
@@ -29,11 +33,18 @@ fun HomeScreen(
     ) {
         Spacer(modifier = Modifier.height(60.dp))
 
-        Text(
-            text = "Sathii",
-            fontSize = 28.sp,
-            style = MaterialTheme.typography.headlineMedium
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Sathii",
+                textAlign = TextAlign.Center,
+                fontSize = 28.sp,
+                style = MaterialTheme.typography.headlineMedium
+            )
+        }
 
         Spacer(modifier = Modifier.height(40.dp))
 
