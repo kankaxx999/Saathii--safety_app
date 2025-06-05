@@ -32,7 +32,7 @@ class ProfileViewModel @Inject constructor(
             val result = repository.getUserProfile()
             _isLoading.value = false
             result.onSuccess {
-                _profile.value = it
+                _profile.value = it ?: UserProfile()
             }.onFailure {
                 _error.value = it.message
             }
@@ -42,26 +42,41 @@ class ProfileViewModel @Inject constructor(
     fun saveUserProfile(profile: UserProfile) {
         viewModelScope.launch {
             _isLoading.value = true
-            val result = repository.saveUserProfile(profile)
+
+            val userEmail = auth.currentUser?.email.orEmpty()
+            val uid = auth.currentUser?.uid.orEmpty()
+
+            val completeProfile = profile.copy(
+                email = userEmail,
+                uid = uid
+            )
+
+            val result = repository.saveUserProfile(completeProfile)
             _isLoading.value = false
+
             result.onSuccess {
                 _error.value = null
-                _profile.value = profile
+                _profile.value = completeProfile
             }.onFailure {
                 _error.value = it.message
             }
         }
     }
 
+
     fun updateProfile(updatedProfile: UserProfile) {
         _profile.value = updatedProfile
     }
 
     fun isProfileComplete(): Boolean {
-        return _profile.value?.let {
-            it.name.isNotBlank() && it.email.isNotBlank() && it.phone.isNotBlank()
+        return profile.value?.let {
+            it.name.isNotBlank() &&
+                    it.email.isNotBlank() &&
+                    android.util.Patterns.EMAIL_ADDRESS.matcher(it.email).matches() &&
+                    it.phone.length == 10
         } ?: false
     }
+
 
     fun logout() {
         auth.signOut()

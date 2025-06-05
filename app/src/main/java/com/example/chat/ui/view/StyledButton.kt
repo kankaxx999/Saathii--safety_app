@@ -13,12 +13,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun StyledButton(text: String, query: String) {
+fun StyledButton(
+    text: String,
+    query: String,
+    onClick: (() -> Unit)? = null
+) {
     val context = LocalContext.current
     Button(
         onClick = {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=$query"))
-            context.startActivity(intent)
+            if (onClick != null) {
+                onClick()
+            } else {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=$query"))
+                context.startActivity(intent)
+            }
         },
         modifier = Modifier
             .fillMaxWidth()

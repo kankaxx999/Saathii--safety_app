@@ -19,5 +19,18 @@ class ContactRepositoryImpl @Inject constructor(
     override fun getAllContacts(): Flow<List<Contact>> {
         return dao.getAllContacts()
     }
+
+
+    override suspend fun updateContact(contact: Contact) {
+        dao.updateContact(contact)
+    }
+
+    override suspend fun getEmergencyContacts(): List<Contact> {
+        return dao.getEmergencyContacts()
+    }
+
 }
+
+
+
 

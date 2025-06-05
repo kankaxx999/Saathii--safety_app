@@ -67,6 +67,12 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation (libs.material)
+    implementation (libs.gson)
+    implementation(libs.play.services.location)
+    implementation (libs.androidx.cardview)
+
+
     coreLibraryDesugaring(libs.desugar.jdk.libs.v204)
 
 

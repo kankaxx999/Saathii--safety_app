@@ -6,4 +6,6 @@ interface ContactRepository {
     suspend fun addContact(contact: Contact)
     suspend fun deleteContact(id: Int)
     fun getAllContacts(): Flow<List<Contact>>
+    suspend fun updateContact(contact: Contact)
+     suspend fun getEmergencyContacts():  List<Contact>
 }

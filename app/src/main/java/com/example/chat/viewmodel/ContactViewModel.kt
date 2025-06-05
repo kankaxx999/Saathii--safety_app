@@ -20,40 +20,35 @@ class ContactViewModel @Inject constructor(
     val contacts = _contacts.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     init {
-        // Fetch contacts when the ViewModel is created
         getContacts()
     }
 
-    // Fetch contacts from the repository and update the state
     private fun getContacts() {
         viewModelScope.launch {
-            repository.getAllContacts().collect { contactList ->
-                _contacts.value = contactList
+            repository.getAllContacts().collect {
+                _contacts.value = it
             }
         }
     }
 
-    // Add contact
     fun addContact(contact: Contact) {
         viewModelScope.launch {
-            try {
-                repository.addContact(contact)
-                getContacts() // Refresh the contact list after adding
-            } catch (e: Exception) {
-                // Handle error
-            }
+            repository.addContact(contact)
+            getContacts()
         }
     }
 
-    // Delete contact
     fun deleteContact(id: Int) {
         viewModelScope.launch {
-            try {
-                repository.deleteContact(id)
-                getContacts() // Refresh the contact list after deleting
-            } catch (e: Exception) {
-                // Handle error
-            }
+            repository.deleteContact(id)
+            getContacts()
+        }
+    }
+
+    fun updateContact(contact: Contact) {
+        viewModelScope.launch {
+            repository.updateContact(contact)
+            getContacts()
         }
     }
 }

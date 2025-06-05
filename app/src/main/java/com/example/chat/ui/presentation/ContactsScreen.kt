@@ -14,6 +14,8 @@ import com.example.chat.viewmodel.ContactViewModel
 @Composable
 fun ContactsScreen(viewModel: ContactViewModel, onNavigateBack: () -> Unit) {
     val contacts by viewModel.contacts.collectAsState(initial = emptyList())
+    val verifiedContacts = contacts.filter { it.verified }
+
 
     Column(
         modifier = Modifier
@@ -24,11 +26,12 @@ fun ContactsScreen(viewModel: ContactViewModel, onNavigateBack: () -> Unit) {
         Text(text = "Saved Contacts", fontSize = 24.sp)
         Spacer(modifier = Modifier.height(16.dp))
 
-        if (contacts.isEmpty()) {
-            Text("No contacts saved.")
+        if (verifiedContacts.isEmpty()) {
+            Text("No verified contacts.")
         } else {
-            contacts.forEach { contact ->
-                Row(
+            verifiedContacts.forEach { contact ->
+
+        Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp),
